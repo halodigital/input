@@ -1,0 +1,119 @@
+@import '../_styles/icons.scss';
+@import '../_styles/variables.scss';
+
+
+:host::ng-deep {
+
+    color: $darkBlueColor;
+
+    form {
+        &.halo-input-form-list-empty-field {
+            header {
+                border-bottom: 0.6px solid $purpleColor;
+            }
+        }
+
+        header {
+            padding: 0 10px 5px 10px;
+            color: $purpleColor;
+            font-weight: 100;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                width: 14px;
+                height: 14px;
+                margin-left: 5px;
+                background-color: $blueColor;
+                border: none;
+                border-radius: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                i {
+                    color: $whiteColor;
+                    font-weight: bold;
+
+                    &.icon-form-list-check-all, &.icon-form-list-uncheck-all {
+                        font-size: 10px;
+                    }
+
+                    &.icon-form-list-collapse-all, &.icon-form-list-expand-all {
+                        font-size: 8px;
+                    }
+                    
+                    &.icon-form-list-create {
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+
+        .mat-accordion {
+            padding: 5px 0;
+            margin-bottom: 0;
+            color: $darkBlueColor;
+            font-size: 13px;
+            font-weight: 100;
+            border-top: 0.6px solid $purpleColor;
+
+            &:last-of-type {
+                padding-bottom: 0 !important;
+            }
+
+            .mat-expansion-panel.mat-expanded {
+                overflow: visible;
+            }
+
+            .mat-expansion-panel-spacing {
+                margin: 0 !important;
+            }
+
+            .mat-expansion-panel-header {
+                background-color: transparent !important;
+
+                .mat-expansion-panel-header-title {
+                    color: $purpleColor;
+                    font-weight: 100;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    
+                    .halo-input-form-list-group-title {
+                        flex: 1;
+                    }
+
+                    .icon-form-list-delete {
+                        font-size: 9px;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .mat-expansion-panel-header:hover .mat-expansion-indicator::after {
+                border-color: $blueColor !important;
+            }
+
+            .mat-expansion-panel-body {
+                padding: 15px 5px !important;
+                border-top: 1px solid $purpleColor;
+                display: flex;
+
+                &:last-of-type {
+                    padding-bottom: 0 !important;
+                }
+
+                halo-input {
+                    margin-bottom: 18px;
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}

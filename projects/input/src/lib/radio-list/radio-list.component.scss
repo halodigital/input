@@ -1,0 +1,74 @@
+@import '../_styles/variables.scss';
+
+$size: 15px;
+
+
+:host::ng-deep {
+
+    .halo-input-radio-list-placeholder {
+        margin-bottom: 8px;
+        color: $purpleColor;
+    }
+
+    .mat-radio-container {
+        width: $size;
+        height: $size;
+    }
+
+    .mat-radio-label-content {
+        color: $darkBlueColor;
+    }
+
+    .mat-radio-outer-circle {
+        width: $size;
+        height: $size;
+        background-color: $whiteColor;
+        border-color: $blueColor !important;
+        border-width: 1px;
+    }
+
+    .mat-radio-checked {
+        .mat-radio-inner-circle {
+            width: $size;
+            height: $size;
+            background-color: $blueColor !important;
+        }
+    }
+
+    .mat-radio-button .mat-radio-ripple{
+        width: $size * 2;
+        height: $size * 2;
+        top: calc(50% - #{$size});
+        left: calc(50% - #{$size});
+        border-radius: 50%;
+    }
+
+    .halo-input-radio-list-empty-field {
+        color: $darkBlueColor;
+    }
+
+    .halo-input-radio-list-horizontal {
+        .mat-radio-label-content {
+            padding-left: 5px;
+            padding-right: 15px;
+            padding-bottom: 2px;
+        }
+    }
+
+    .halo-input-radio-list-vertical {
+        .mat-radio-button {
+            display: block;
+            margin-bottom: 7px;
+
+            &:last-of-type {
+                padding-bottom: 0px;
+                margin-bottom: 0;
+            }
+
+            .mat-radio-label-content {
+                padding-bottom: 1px;
+            }
+        }
+    }
+
+}

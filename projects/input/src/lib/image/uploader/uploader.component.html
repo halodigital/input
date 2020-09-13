@@ -1,0 +1,23 @@
+<div class="halo-input-image-uploader-title">Load Image</div>
+
+<div class="halo-input-image-uploader-main">
+
+    <div #image class="halo-input-image-uploader-image">
+        <halo-loading *ngIf="loading"></halo-loading>
+    </div>
+
+    <div class="halo-input-image-uploader-hint">{{hint}}</div>
+
+    <div *ngIf="error" class="halo-input-image-uploader-error">{{error}}</div>
+
+</div>
+
+<div>
+
+    <button type="button" mat-raised-button (click)="browse()">Upload</button>
+    <button type="button" mat-raised-button (click)="delete()" [disabled]="isPreventDelete">Delete</button>
+    <button type="button" mat-raised-button (click)="confirm()" [disabled]="isPreventOK">OK</button>
+    <button type="button" mat-raised-button (click)="cancel()">Cancel</button>
+    <input type="file" #inputFile (change)="load($event)" accept="image/jpeg" />
+
+</div>

@@ -1,0 +1,16 @@
+<mat-checkbox
+    [checked]="value"
+    [required]="required"
+    [disabled]="disabled || readonly"
+    (change)="changeValue($event.checked)">
+
+    <div #contentPlaceholder>
+        <ng-content></ng-content>
+    </div>
+
+    <ng-container *ngIf="!hasContentPlaceholder">
+        {{placeholder}}
+        <ng-container *ngIf="required">*</ng-container>
+    </ng-container>
+
+</mat-checkbox>

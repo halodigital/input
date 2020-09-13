@@ -1,0 +1,40 @@
+<mat-form-field>
+
+    <mat-chip-list #inputChips>
+
+        <mat-chip
+            *ngFor="let chip of chips"
+            [removable]="deletable"
+            (removed)="removeChip(chip)">
+
+            <div class="mat-chip-text" [haloTooltip]="chip" tooltipPosition="middle-left" enableEllipsis="true">{{chip}}</div>
+            <i matChipRemove *ngIf="deletable" class="icon-chips-delete"></i>
+
+        </mat-chip>
+
+        <input matInput
+            id="halo-input-chips-{{uniqueId}}"
+            autocomplete="off"
+            spellcheck="false"
+            [value]="typingLabel"
+            [placeholder]="placeholder + (required ? ' *' : '')"
+            [required]="required"
+            [disabled]="disabled || readonly"
+            [matAutocomplete]="autocomplete"
+            [matChipInputFor]="inputChips"
+            [matChipInputSeparatorKeyCodes]="separators"
+            [matChipInputAddOnBlur]="false"
+            (matChipInputTokenEnd)="createChip()"
+            (input)="valueTyped($event.target.value)"
+            (blur)="blurValue()"
+            (focus)="valueFocused()">
+
+    </mat-chip-list>
+
+    <mat-autocomplete #autocomplete="matAutocomplete" (optionSelected)="valueSelected($event.option.value)">
+        <mat-option *ngFor="let option of typingOptions" [value]="option">
+            {{option.label}}
+        </mat-option>
+    </mat-autocomplete>
+
+</mat-form-field>

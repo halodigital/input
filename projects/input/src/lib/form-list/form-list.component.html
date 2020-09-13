@@ -1,0 +1,105 @@
+<form [class.halo-input-form-list-empty-field]="!value.length">
+
+    <header *ngIf="(selectable && groups.length) || groups.length || creatable">
+
+        <button *ngIf="selectable && selectable !== 'disabled' && !disabled && groups.length"
+            type="button"
+            (click)="toggleSelectAll()">
+
+            <i [class]="selectAllIcon"></i>
+
+        </button>
+
+        <button *ngIf="groups.length"
+            type="button"
+            (click)="toggleExpandAll()">
+
+            <i [class]="expandAllIcon"></i>
+
+        </button>
+
+        <button *ngIf="creatable && !disabled && !readonly"
+            type="button"
+            (click)="create()">
+
+            <i class="icon-form-list-create"></i>
+
+        </button>
+
+    </header>
+
+    <mat-accordion *ngFor="let controlGroup of form.controls; let i = index;">
+
+        <mat-expansion-panel *ngIf="value && value[i]" [formGroup]="controlGroup" [expanded]="groups[i]" (opened)="groups[i]=true" (closed)="groups[i]=false">
+
+            <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                <mat-panel-title>
+
+                    <div class="halo-input-form-list-group-title" [haloTooltip]="titles[i]" tooltipPosition="middle-left" enableEllipsis="true">{{titles[i]}}</div>
+
+                    <div *ngIf="deletable && !disabled && !readonly">
+                        <i class="icon-form-list-delete" (click)="delete(i)"></i>
+                    </div>
+
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div *ngIf="selectable" class="checkbox">
+                <halo-input
+                    [id]="'form-list-' + i + '-isSelected'"
+                    type="checkbox"
+                    formControlName="isSelected"
+                    (valueChanged)="select($event, i)">
+                </halo-input>
+            </div>
+
+            <div class="fields">
+
+                <ng-container *ngFor="let field of fields">
+
+                    <halo-input
+                        *ngIf="i > 0 || !field.hideFromFirstGroup"
+                        [id]="'form-list-' + i + '-' + field.id"
+                        [formControlName]="field.id"
+                        [type]="getFieldType(field, i)"
+                        [noValidate]="field.noValidate"
+                        [placeholder]="field.placeholder"
+                        [hint]="field.hint"
+                        [readonly]="field.readonly || readonly"
+                        [hostControl]="form.controls[i].controls[field.id]"
+                        [range]="field.range"
+                        [multiple]="field.multiple"
+                        [formSubmitted]="formSubmitted"
+                        [direction]="field.direction"
+                        [options]="field.options || (field.optionsPerGroup && field.optionsPerGroup[i])"
+                        [optionsEndpoint]="field.optionsEndpoint"
+                        [optionsEndpointParam]="field.optionsEndpointParam"
+                        [optionsCaching]="field.optionsCaching"
+                        [optionsExcludeValues]="field.optionsExcludeValues"
+                        [initLabels]="field.initLabels && field.initLabels[i]"
+                        [forceValueInOptions]="field.forceValueInOptions"
+                        [uploadEndpoint]="field.uploadEndpoint"
+                        [min]="field.min"
+                        [max]="field.max"
+                        [pattern]="field.pattern"
+                        [groupName]="field.groupName"
+                        [tooltipPosition]="field.tooltipPosition"
+                        (valueChanged)="update(field, i)"
+                        (optionsEndpointLoaded)="optionsEndpointLoaded($event, field, i)">
+                    </halo-input>
+
+                </ng-container>
+
+            </div>
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</form>
+
+<ng-container *ngIf="!value.length && !creatable">
+
+    {{emptyLabel}}
+
+</ng-container>

@@ -1,0 +1,38 @@
+<mat-form-field>
+
+    <input matInput #input
+        *ngIf="mode === 'text'"
+        id="halo-input-text-{{uniqueId}}"
+        autocomplete="off"
+        spellcheck="false"
+        [value]="value"
+        [placeholder]="placeholder"
+        [required]="required"
+        [disabled]="disabled || readonly"
+        [pattern]="pattern"
+        (input)="changeValue($event.target.value)"
+        (blur)="blurValue()" />
+
+    <ng-container *ngIf="mode === 'autocomplete'">
+
+        <input matInput #input
+            id="halo-input-text-{{uniqueId}}"
+            autocomplete="off"
+            spellcheck="false"
+            [value]="typingLabel"
+            [placeholder]="placeholder"
+            [required]="required"
+            [disabled]="disabled || readonly"
+            [matAutocomplete]="autocomplete"
+            (input)="valueTyped($event.target.value)"
+            (blur)="blurValue()" />
+
+        <mat-autocomplete #autocomplete="matAutocomplete" (optionSelected)="valueSelected($event.option.value)">
+            <mat-option *ngFor="let option of typingOptions" [value]="option.value">
+                {{option.label}}
+            </mat-option>
+        </mat-autocomplete>
+
+    </ng-container>
+
+</mat-form-field>

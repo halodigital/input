@@ -1,0 +1,19 @@
+<mat-form-field (click)="openPicker()">
+
+    <input matInput datepicker #input
+        id="halo-input-date-{{uniqueId}}"
+        autocomplete="off"
+        spellcheck="false"
+        type="text"
+        [placeholder]="placeholder"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="true"
+        [calendarValue]="value"
+        [singleDatePicker]="!range"
+        (datesUpdated)="changeValue($event)"
+        (blur)="blurValue()" />
+
+    <i matSuffix *ngIf="!disabled && !readonly" class="icon-date-calendar"></i>
+    
+</mat-form-field>

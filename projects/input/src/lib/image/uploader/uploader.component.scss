@@ -1,0 +1,49 @@
+@import '../../_styles/variables.scss';
+
+
+:host::ng-deep {
+
+    .halo-input-image-uploader-title {
+        color: $blueColor;
+        font-size: 2em;
+        font-family: 'ubuntu mono';
+        text-align: center;
+    }
+
+    .halo-input-image-uploader-main {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .halo-input-image-uploader-image {
+            width: 54px;
+            height: 54px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        
+            halo-loading {
+                height: 100%;
+                background: rgba($blackColor, 0.2);
+                align-items: center;
+            }
+        }
+
+        .halo-input-image-uploader-hint {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        .halo-input-image-uploader-error {
+            margin-top: 5px;
+            color: $redColor;
+            font-size: 0.9em;
+        }
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+}

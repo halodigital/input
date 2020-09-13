@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'icons';
+    src:
+        url('../../../assets/fonts/icons.ttf?4odtkq') format('truetype'),
+        url('../../../assets/fonts/icons.woff?4odtkq') format('woff'),
+        url('../../../assets/fonts/icons.svg?4odtkq') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icons' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-date-calendar:before {
+    content: "\a800";
+}
+.icon-form-list-collapse-all:before {
+    content: "\a801";
+}
+.icon-form-list-expand-all:before {
+    content: "\a8011";
+}
+.icon-form-list-create:before {
+    content: "\a803";
+}
+.icon-chips-delete:before {
+    content: "\a804";
+}
+.icon-form-list-delete:before {
+    content: "\a804";
+}
+.icon-form-list-check-all:before {
+    content: "\a805";
+}
+.icon-form-list-uncheck-all:before {
+    content: "\a8013";
+}
+.icon-password-show:before {
+    content: "\a8012";
+}
+.icon-password-hide:before {
+    content: "\a807";
+}
+.icon-textarea-expand:before {
+    content: "\a808";
+}

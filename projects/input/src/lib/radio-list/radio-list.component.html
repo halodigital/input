@@ -1,0 +1,28 @@
+<ng-container *ngIf="UIOptions.length">
+
+    <div class="halo-input-radio-list-placeholder">
+        {{placeholder}}
+        <ng-container *ngIf="placeholder && required">*</ng-container>
+    </div>
+
+    <mat-radio-group
+        [class.halo-input-radio-list-horizontal]="direction === 'horizontal'"
+        [class.halo-input-radio-list-vertical]="direction === 'vertical'"
+        [value]="value"
+        [required]="required"
+        [disabled]="disabled || readonly"
+        (change)="changeValue($event.value)">
+
+        <mat-radio-button *ngFor="let option of UIOptions" [value]="option.value">
+            {{option.label}}
+        </mat-radio-button>
+
+    </mat-radio-group>
+
+</ng-container>
+
+<div *ngIf="!UIOptions.length" class="halo-input-radio-list-empty-field">
+
+    {{emptyLabel}}
+
+</div>

@@ -1,0 +1,114 @@
+@import '../_styles/variables.scss';
+
+
+:host::ng-deep {
+
+    .halo-input-checkbox-list-placeholder {
+        color: $purpleColor;
+        font-weight: 300;
+    }
+
+    .halo-input-checkbox-list-checkboxes {
+        display: flex;
+
+        .mat-checkbox {
+            display: block;
+
+            &.mat-checkbox-disabled {
+                opacity: 0.6 !important;
+            }
+
+            label {
+                margin-bottom: -3px !important;
+            }
+
+            .mat-checkbox-layout {
+                width: 100%;
+                margin-bottom: 0 !important;
+
+                .mat-checkbox-inner-container {
+                    width: 11px;
+                    height: 11px;
+                    margin: unset;
+                    margin-right: 10px;
+
+                    .mat-checkbox-frame {
+                        border-color: transparent !important;
+                        border-radius: 0;
+                    }
+
+                    .mat-checkbox-background {
+                        background-color: $whiteColor;
+
+                        .mat-checkbox-checkmark-path {
+                            stroke: $purpleColor !important;
+                            stroke-width: 5px !important;
+                        }
+                    }
+                }
+
+                .mat-checkbox-label {
+                    width: 100%;
+                    color: $darkBlueColor;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    .halo-input-checkbox-list-empty-field {
+        color: $darkBlueColor;
+    }
+
+    .halo-input-checkbox-list-horizontal {
+        .halo-input-checkbox-list-placeholder {
+            margin-bottom: 3px;
+        }
+
+        .halo-input-checkbox-list-checkboxes {
+            .mat-checkbox {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .halo-input-checkbox-list-vertical {
+        border: 1px solid $lightGrayColor;
+
+        .halo-input-checkbox-list-placeholder {
+            height: 40px;
+            padding: 0 10px;
+            border-bottom: 1px solid $lightGrayColor;
+            display: flex;
+            align-items: center;
+        }
+
+        .halo-input-checkbox-list-checkboxes {
+            height: auto;
+            max-height: 150px;
+            flex-direction: column;
+            overflow: auto;
+
+            .mat-checkbox {
+                width: 100%;
+                border-top: 1px solid $lightGrayColor;
+
+                &:first-of-type {
+                    border-top: none;
+                }
+
+                &:hover {
+                    background-color: $hoverColor;
+                }
+
+                label {
+                    height: 40px;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+}

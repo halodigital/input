@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+
+    <halo-input
+        #textElement
+        formControlName="text"
+        type="textarea"
+        [placeholder]="placeholder"
+        [hostControl]="form.controls.text"
+        [disableExpand]="true">
+    </halo-input>
+
+</form>

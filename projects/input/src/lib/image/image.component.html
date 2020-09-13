@@ -1,0 +1,6 @@
+<div #input class="halo-input-image" (click)="openUploader()"></div>
+
+<div class="halo-input-image-uploader" [class.halo-input-image-hidden]="!uploader" (click)="closeUploader()">
+    <div #arrow class="halo-input-image-arrow"></div>
+    <div #box class="halo-input-image-box" (click)="$event.stopPropagation()"></div>
+</div>

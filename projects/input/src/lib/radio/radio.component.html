@@ -1,0 +1,21 @@
+<mat-radio-group [name]="groupName">
+
+    <mat-radio-button
+        [value]="undefined"
+        [checked]="value"
+        [required]="required"
+        [disabled]="disabled || readonly"
+        (change)="changeValue(outputValue || true)">
+
+        <div #contentPlaceholder>
+            <ng-content></ng-content>
+        </div>
+
+        <ng-container *ngIf="!hasContentPlaceholder">
+            {{placeholder}}
+            <ng-container *ngIf="required">*</ng-container>
+        </ng-container>
+
+    </mat-radio-button>
+
+</mat-radio-group>

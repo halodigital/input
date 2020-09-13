@@ -1,0 +1,38 @@
+@import '../_styles/variables.scss';
+
+
+:host::ng-deep {
+
+    .halo-input-number-single {
+        width: 100%;
+    }
+
+    .halo-input-number-range {
+        .halo-input-number-placeholder {
+            margin-left: -4px;
+            margin-bottom: -13px;
+            color: $purpleColor;
+            font-size: 1em;
+            font-family: "Ubuntu", sans-serif;
+            font-weight: 200;
+            transform: translateY(-0.1em) scale(0.95) perspective(100px) translateZ(0.001px);
+        }
+
+        .halo-input-number-inputs {
+            width: 100%;
+            display: flex;
+            align-items: baseline;
+
+            .mat-form-field {
+                width: calc(50% - 5px);
+            }
+
+            .halo-input-number-separator {
+                padding: 0 5px;
+                color: $lightGrayColor;
+                font-weight: bold;
+            }
+        }
+    }
+
+}

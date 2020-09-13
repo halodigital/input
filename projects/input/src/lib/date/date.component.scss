@@ -1,0 +1,16 @@
+@import '../_styles/icons.scss';
+
+
+:host {
+
+    cursor: pointer;
+
+    input {
+        cursor: pointer;
+    }
+
+    i {
+        font-weight: bold;
+    }
+
+}

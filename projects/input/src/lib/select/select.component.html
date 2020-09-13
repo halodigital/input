@@ -1,0 +1,45 @@
+<mat-form-field>
+
+    <mat-select
+        [value]="value"
+        [placeholder]="placeholder"
+        [required]="required"
+        [disabled]="disabled || readonly"
+        [multiple]="multiple"
+        (selectionChange)="selectionChanged($event.value)"
+        (openedChange)="blurValue($event)">
+
+        <mat-option *ngIf="multiple && value" [value]="null">
+            
+            Deselect All
+        
+        </mat-option>
+        
+        <mat-option *ngIf="!multiple && !required && value" [value]="null">
+            
+            &nbsp;
+        
+        </mat-option>
+
+        <mat-option *ngFor="let option of UIOptions" [value]="option.value">
+
+            <div
+                [haloTooltip]="option.label"
+                [tooltipPosition]="tooltipPosition"
+                [enableEllipsis]="true">
+
+                {{option.label}}
+
+            </div>
+
+        </mat-option>
+
+        <mat-option *ngIf="isOptionsLoading" disabled="true" [value]="null">
+
+            Loading...
+
+        </mat-option>
+
+    </mat-select>
+
+</mat-form-field>

@@ -1,0 +1,11 @@
+:host {
+
+    .cdk-textarea-autosize {
+        height: 100px;
+        max-height: 270px;
+        padding: 0px;
+        overflow: auto;
+        resize: auto !important;
+    }
+
+}

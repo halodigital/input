@@ -1,0 +1,206 @@
+<ng-container [ngSwitch]="type">
+
+    <halo-input-checkbox #innerComponent *ngSwitchCase="'checkbox'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        (changed)="changeValue($event)">
+        <ng-content select="[checkboxContent]"></ng-content>
+    </halo-input-checkbox>
+
+    <halo-input-checkbox-list #innerComponent *ngSwitchCase="'checkboxList'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [direction]="direction"
+        [options]="options"
+        [optionsEndpoint]="optionsEndpoint"
+        [optionsCaching]="optionsCaching"
+        [optionsExcludeValues]="optionsExcludeValues"
+        [emptyLabel]="emptyLabel"
+        [readonlyOptions]="readonlyOptions"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()"
+        (optionsEndpointLoaded)="optionsEndpointLoadedCall($event)">
+    </halo-input-checkbox-list>
+
+    <halo-input-chips #innerComponent *ngSwitchCase="'chips'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [options]="options"
+        [optionsEndpoint]="optionsEndpoint"
+        [optionsEndpointParam]="optionsEndpointParam"
+        [initLabels]="initLabels"
+        [forceValueInOptions]="forceValueInOptions"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-chips>
+
+    <halo-input-date #innerComponent *ngSwitchCase="'date'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [range]="range"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-date>
+
+    <halo-input-form-list #innerComponent *ngSwitchCase="'formList'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [formSubmitted]="formSubmitted"
+        [emptyLabel]="emptyLabel"
+        [creatable]="creatable"
+        [deletable]="deletable"
+        [selectable]="selectable"
+        [titleFieldId]="titleFieldId"
+        [focusGroupIndex]="focusGroupIndex"
+        [fields]="fields"
+        (changed)="changeValue($event)">
+    </halo-input-form-list>
+
+    <halo-input-hidden #innerComponent *ngSwitchCase="'hidden'"
+        [hostControl]="hostControl"
+        (changed)="changeValue($event)">
+    </halo-input-hidden>
+
+    <halo-input-image #innerComponent *ngSwitchCase="'image'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [uploadEndpoint]="uploadEndpoint"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-image>
+
+    <halo-input-number #innerComponent *ngSwitchCase="'number'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [range]="range"
+        [min]="min"
+        [max]="max"
+        [step]="step"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-number>
+
+    <halo-input-password #innerComponent *ngSwitchCase="'password'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [pattern]="pattern"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-password>
+
+    <halo-input-radio #innerComponent *ngSwitchCase="'radio'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [outputValue]="outputValue"
+        [groupName]="groupName"
+        (changed)="changeValue($event)">
+        <ng-content select="[radioContent]"></ng-content>
+    </halo-input-radio>
+
+    <halo-input-radio-list #innerComponent *ngSwitchCase="'radioList'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [direction]="direction"
+        [options]="options"
+        [optionsEndpoint]="optionsEndpoint"
+        [optionsCaching]="optionsCaching"
+        [optionsExcludeValues]="optionsExcludeValues"
+        [emptyLabel]="emptyLabel"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()"
+        (optionsEndpointLoaded)="optionsEndpointLoadedCall($event)">
+    </halo-input-radio-list>
+
+    <halo-input-select #innerComponent *ngSwitchCase="'select'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [multiple]="multiple"
+        [options]="options"
+        [optionsEndpoint]="optionsEndpoint"
+        [optionsCaching]="optionsCaching"
+        [optionsExcludeValues]="optionsExcludeValues"
+        [tooltipPosition]="tooltipPosition"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()"
+        (optionsEndpointLoaded)="optionsEndpointLoadedCall($event)">
+    </halo-input-select>
+
+    <halo-input-textarea #innerComponent *ngSwitchCase="'textarea'"
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [disableExpand]="disableExpand"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-textarea>
+
+    <halo-input-text #innerComponent *ngSwitchDefault
+        [placeholder]="placeholder"
+        [hint]="hint"
+        [required]="required"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [hostControl]="hostControl"
+        [pattern]="pattern"
+        [options]="options"
+        [optionsEndpoint]="optionsEndpoint"
+        [optionsEndpointParam]="optionsEndpointParam"
+        [initLabels]="initLabels"
+        [forceValueInOptions]="forceValueInOptions"
+        (changed)="changeValue($event)"
+        (blured)="blurValue()">
+    </halo-input-text>
+
+</ng-container>
+
+<div class="halo-input-subtext halo-input-subtext-{{type}}" *ngIf="errorMessage || hint">
+    <span class="error" *ngIf="errorMessage">{{errorMessage}}</span>
+    <span class="hint" *ngIf="hint && !errorMessage">{{hint}}</span>
+</div>

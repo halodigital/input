@@ -1,0 +1,48 @@
+@import '../_styles/variables.scss';
+
+
+:host::ng-deep {
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .mat-checkbox {
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        .mat-checkbox-layout {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+
+            .mat-checkbox-inner-container {
+                width: 11px;
+                height: 11px;
+                margin: 0 10px 0 0;
+
+                .mat-checkbox-frame {
+                    border-color: transparent !important;
+                    border-radius: 0;
+                }
+
+                .mat-checkbox-background {
+                    background-color: $whiteColor;
+
+                    .mat-checkbox-checkmark-path {
+                        stroke: $purpleColor !important;
+                        stroke-width: 5px !important;
+                    }
+                }
+            }
+
+            .mat-checkbox-label {
+                width: 100%;
+                margin-bottom: 1px;
+                color: $purpleColor;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+<mat-form-field>
+
+    <div *ngIf="showExpandIcon"
+        class="halo-input-textarea-expand-icon"
+        (click)="expand()">
+
+        <i class="icon-textarea-expand"></i>
+
+    </div>
+
+    <textarea matInput cdkTextareaAutosize #input
+        #cdkInput="cdkTextareaAutosize" 
+        id="halo-input-textarea-{{uniqueId}}"
+        autocomplete="off"
+        spellcheck="false"
+        [value]="value"
+        [placeholder]="placeholder"
+        [required]="required"
+        [disabled]="disabled || readonly"
+        (keyup.enter)="enterPressed($event)"
+        (input)="changeValue($event.target.value)"
+        (blur)="blurValue()">
+    </textarea>
+
+</mat-form-field>

@@ -1,0 +1,31 @@
+<div *ngIf="UIOptions.length"
+    [class.halo-input-checkbox-list-horizontal]="direction === 'horizontal'"
+    [class.halo-input-checkbox-list-vertical]="direction === 'vertical'">
+
+    <div *ngIf="placeholder" class="halo-input-checkbox-list-placeholder">
+        {{placeholder}}
+        <ng-container *ngIf="required">*</ng-container>
+    </div>
+
+    <div class="halo-input-checkbox-list-checkboxes">
+
+        <mat-checkbox
+            *ngFor="let option of UIOptions"
+            [checked]="isChecked(option)"
+            [required]="required"
+            [disabled]="isDisabled(option)"
+            (change)="checkboxChanged(option, $event.checked)">
+
+            {{option.label}}
+
+        </mat-checkbox>
+
+    </div>
+
+</div>
+
+<div *ngIf="!UIOptions.length" class="halo-input-checkbox-list-empty-field">
+
+    {{emptyLabel}}
+
+</div>

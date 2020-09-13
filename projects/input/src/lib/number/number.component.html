@@ -1,0 +1,77 @@
+<div *ngIf="!isRange" class="halo-input-number-single">
+
+    <mat-form-field>
+
+        <input matInput #input
+            id="halo-input-number-{{uniqueId}}"
+            autocomplete="off"
+            spellcheck="false"
+            type="number"
+            [value]="getSingleValue()"
+            [placeholder]="placeholder"
+            [required]="required"
+            [disabled]="disabled || readonly"
+            [min]="min"
+            [max]="max"
+            [step]="step"
+            (input)="valueTyped($event.target.value)"
+            (blur)="allBlurValue()"
+            (focus)="singleValueFocused()" />
+
+    </mat-form-field>
+
+</div>
+
+
+<div *ngIf="isRange" class="halo-input-number-range">
+
+    <div class="halo-input-number-placeholder">
+        {{placeholder}}
+        <ng-container *ngIf="placeholder && required">*</ng-container>
+    </div>
+
+    <div class="halo-input-number-inputs">
+
+        <mat-form-field>
+
+            <input matInput #inputFrom
+                id="halo-input-number-{{uniqueId}}"
+                autocomplete="off"
+                spellcheck="false"
+                type="number"
+                [value]="inputValue && inputValue[0]"
+                [required]="required"
+                [disabled]="disabled || readonly"
+                [min]="min"
+                [max]="max"
+                [step]="step"
+                (input)="valueTyped($event.target.value, 0)"
+                (blur)="allBlurValue()"
+                (focus)="rangeValueFocused()" />
+
+        </mat-form-field>
+
+        <div class="halo-input-number-separator">-</div>
+
+        <mat-form-field>
+
+            <input matInput #inputTo
+                id="halo-input-number-{{uniqueId}}"
+                autocomplete="off"
+                spellcheck="false"
+                type="number"
+                [value]="inputValue && inputValue[1]"
+                [required]="required"
+                [disabled]="disabled || readonly"
+                [min]="min"
+                [max]="max"
+                [step]="step"
+                (input)="valueTyped($event.target.value, 1)"
+                (blur)="allBlurValue()"
+                (focus)="rangeValueFocused()" />
+
+        </mat-form-field>
+
+    </div>
+
+</div>
