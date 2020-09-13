@@ -474,8 +474,18 @@ If true, every object in the value will contain 'isSelected': boolean.</sub>
 
 ## Few More Things
 
+##### HaloInputModule forRoot Parameters
+<sub>DATE_FORMAT</sub>  
+<sub>String that represent the date format. i.e: 'DD/MM/YYYY', 'DD/MM/YYYY HH:mm:ss' etc.</sub>
+<br />
+
+<sub>DATE_TIMEZONE</sub>  
+<sub>String that represent the timezone. i.e: 'UTC', 'Europe/Athens', 'US/Hawaii' etc.</sub>
+<br />
+
+
 ##### HaloInputFormListField Declaration
-<sub>
+```
 {
     id: string;
     type: 'checkbox' | 'checkboxList' | 'chips' | 'date' | 'list' | 'hidden' | 'image' | 'number' | 'password' | 'radio' | 'radioList' | 'select' | 'text' | 'textarea';
@@ -506,17 +516,7 @@ If true, every object in the value will contain 'isSelected': boolean.</sub>
     typePerGroup?: ('checkbox' | 'checkboxList' | 'chips' | 'date' | 'list' | 'hidden' | 'image' | 'number' | 'password' | 'radio' | 'radioList' | 'select' | 'text' | 'textarea')[];
     onChange?: (fieldValue: any, fieldId: string, fieldIndex: number, form: FormArray, entireListValue: object[]) => void;
 }
-</sub>
-
-
-##### HaloInputModule forRoot Parameters
-<sub>DATE_FORMAT</sub>  
-<sub>String that represent the date format. i.e: 'DD/MM/YYYY', 'DD/MM/YYYY HH:mm:ss' etc.</sub>
-<br />
-
-<sub>DATE_TIMEZONE</sub>  
-<sub>String that represent the timezone. i.e: 'UTC', 'Europe/Athens', 'US/Hawaii' etc.</sub>
-<br />
+```
 
 
 ## Examples
