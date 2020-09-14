@@ -56,8 +56,8 @@ export class HaloInputDateCalendarComponent implements OnInit {
         format: null
     };
 
-    @Input() minDate: moment.Moment = null;
-    @Input() maxDate: moment.Moment = null;
+    @Input() minDate: any = null;
+    @Input() maxDate: any = null;
     @Input() autoApply = false;
     @Input() singleDatePicker = false;
     @Input() showDropdowns = false;

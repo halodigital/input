@@ -21,8 +21,8 @@ export class HaloInputDateCalendarDirective implements OnChanges {
     private _onTouched = Function.prototype;
     private _value: any;
 
-    @Input() minDate: moment.Moment;
-    @Input() maxDate: moment.Moment;
+    @Input() minDate: any;
+    @Input() maxDate: any;
     @Input() autoApply: boolean;
     @Input() alwaysShowCalendars: boolean;
     @Input() showCustomRangeLabel: boolean;
