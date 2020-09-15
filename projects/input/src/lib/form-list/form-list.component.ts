@@ -1,7 +1,8 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import * as moment_ from 'moment-timezone';
-import { HaloInputType, HaloInputOption, HaloInputTimezone } from '../input';
+import { HaloInputOption, HaloInputTimezone, HaloInputType } from '../input';
+import { HaloInputComponent } from '../input.component';
 import { HaloInputParentComponent } from '../_general/parent.component';
 import { HaloInputFormListField, HaloInputFormListMode } from './form-list';
 
@@ -23,6 +24,8 @@ export class HaloInputFormListComponent extends HaloInputParentComponent<object[
     private _fields: HaloInputFormListField[];
     private _formSubmitted: boolean;
     private _focusGroupIndex: number;
+
+    @ViewChildren(HaloInputComponent) inputs: QueryList<HaloInputComponent>;
 
     @Input() creatable: boolean;
     @Input() deletable: boolean;
@@ -409,6 +412,21 @@ export class HaloInputFormListComponent extends HaloInputParentComponent<object[
             if (this.focusGroupIndex !== null && this.focusGroupIndex !== undefined && this.focusGroupIndex > -1) {
                 this.groups[this.focusGroupIndex] = true;
             }
+
+            setTimeout(() => {
+
+                this.inputs.forEach(input => {
+
+                    const idString = input.id.replace('form-list-', '');
+                    const fieldIndex = +idString.substring(0, idString.indexOf('-'));
+                    const fieldId = input.id.replace('form-list-' + fieldIndex + '-', '');
+                    const value = this.value[fieldIndex][fieldId];
+
+                    input.innerComponent.initValue(value);
+
+                });
+
+            }, 0);
 
         }
 

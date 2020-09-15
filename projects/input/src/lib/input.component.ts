@@ -32,6 +32,13 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
 
     @ViewChild('innerComponent', {static: false}) innerComponent: HaloInputParentComponent<any>;
 
+    @HostBinding('id')
+    get elementId(): string {
+
+        return this.id;
+
+    }
+
     @HostBinding('class.halo-input-disabled')
     get disabledClass(): boolean {
 
@@ -53,6 +60,7 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
 
     }
 
+    @Input() id: string;
     @Input() noValidate: boolean;
     @Input() placeholder: string;
     @Input() hint: string;
@@ -269,13 +277,9 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
 
         this.value = initialValue;
 
-        setTimeout(() => {
-
-            if (this.innerComponent) {
-                this.innerComponent.initValue(initialValue);
-            }
-
-        }, 200);
+        if (this.innerComponent) {
+            this.innerComponent.initValue(initialValue);
+        }
 
         this.validate(true);
 

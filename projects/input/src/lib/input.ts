@@ -17,7 +17,7 @@ export enum HaloInputType {
     CheckboxList = 'checkboxList',
     Chips = 'chips',
     Date = 'date',
-    FormList = 'list',
+    FormList = 'formList',
     Hidden = 'hidden',
     Image = 'image',
     Number = 'number',

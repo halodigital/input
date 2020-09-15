@@ -47,6 +47,12 @@ Enjoy!
 
 ## Attributes of All Input Types
 
+##### id
+<sub>The field unique id</sub>  
+<sub>**Type:** string</sub>
+<sub>**Default:** null</sub>
+<br />
+
 ##### type
 <sub>Declare the field input type</sub>  
 <sub>**Type:** 'checkbox' | 'checkboxList' | 'chips' | 'date' | 'list' | 'hidden' | 'image' | 'number' | 'password' | 'radio' | 'radioList' | 'select' | 'text' | 'textarea'</sub>  
