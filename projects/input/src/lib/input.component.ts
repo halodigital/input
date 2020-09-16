@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { HaloTooltipPosition } from '@halodigital/tooltip';
 import { HaloInputFormListField } from './form-list/form-list';
-import { HaloInputDirection, HaloInputErrorMessages, HaloInputType, HaloInputOption } from './input';
+import { HaloInputDirection, HaloInputErrorMessages, HaloInputOption, HaloInputType } from './input';
 import { HaloInputParentComponent } from './_general/parent.component';
 
 
@@ -17,7 +17,7 @@ import { HaloInputParentComponent } from './_general/parent.component';
     }]
 })
 
-export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChanges {
+export class HaloInputComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnChanges {
 
     value: any;
     errorMessage: string;
@@ -31,13 +31,6 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
     private _required: boolean;
 
     @ViewChild('innerComponent', {static: false}) innerComponent: HaloInputParentComponent<any>;
-
-    @HostBinding('id')
-    get elementId(): string {
-
-        return this.id;
-
-    }
 
     @HostBinding('class.halo-input-disabled')
     get disabledClass(): boolean {
@@ -60,7 +53,6 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
 
     }
 
-    @Input() id: string;
     @Input() noValidate: boolean;
     @Input() placeholder: string;
     @Input() hint: string;
@@ -207,6 +199,12 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
 
     }
 
+    ngAfterViewInit(): void {
+
+        this.writeValue(this.value);
+
+    }
+
     ngOnChanges(changes: SimpleChanges): void {
 
         if (this.allInputsLoaded && changes.type && changes.type.previousValue !== changes.type.currentValue) {
@@ -246,7 +244,9 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
         this.value = value;
 
         if (this.changed) {
+
             this.changed(value);
+
         }
 
         this.valueChanged.emit(value);
@@ -258,7 +258,9 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
     blurValue(): void {
 
         if (this.blured) {
+
             this.blured();
+
         }
 
         this.valueBlured.emit();
@@ -278,7 +280,9 @@ export class HaloInputComponent implements ControlValueAccessor, OnInit, OnChang
         this.value = initialValue;
 
         if (this.innerComponent) {
+
             this.innerComponent.initValue(initialValue);
+
         }
 
         this.validate(true);
